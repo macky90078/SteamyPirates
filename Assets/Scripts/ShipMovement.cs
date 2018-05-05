@@ -10,19 +10,23 @@ public class ShipMovement : MonoBehaviour {
 	private float m_sideSpeed;
 
 	private float m_sideMoveThreashold = 0.2f;
-	private float m_sideMoveX;
+	private float m_sideMoveX = 0;
 	private float m_iPx;
 
 
 	// Use this for initialization
 	void Start () 
 	{
+        Screen.orientation = ScreenOrientation.Portrait;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+		transform.Translate (Input.acceleration.x, 0, 0);
 		MoveShipForward ();
+		//ShipGyro ();
+
 	}
 
     private void MoveShipForward()
@@ -32,7 +36,6 @@ public class ShipMovement : MonoBehaviour {
 
 	private void ShipGyro()
 	{
-		m_sideMoveX = 0;
 		m_iPx = Input.acceleration.x;
 
 		if (Mathf.Abs (m_iPx) > m_sideMoveThreashold) 
