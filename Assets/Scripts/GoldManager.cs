@@ -35,18 +35,17 @@ public class GoldManager : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update ()
-    {   
+    {
         text();
 
-        //if (m_fgold <= 5)
-        //{
-        //    transform.Translate(Vector3.up * (m_fRiseSpeed * Time.deltaTime));
-        //}
-        //// once player has some gold they will inevitably start falling and slowing down
-        //if (m_fgold > 5)
-        //{
-        //    transform.Translate(-Vector3.up * (m_fgold * m_fFallSpeed * Time.deltaTime));
-        //}
+        int fingerCount = 0;
+        foreach(Touch touch in Input.touches)
+        {
+            if(touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+            {
+                DumpGold();
+            }
+        }
 
         if(m_bCollectedGold)
         {
