@@ -16,6 +16,7 @@ public class GoldManager : MonoBehaviour
     public float m_fFallSpeed = 0.01f;
     public float m_fRiseSpeed = 0.1f;
     public float m_fGoldThreshold = 10.0f;
+    public float goldup = 5.0f;
 
     public bool m_bCollectedGold;
     public bool m_bDumpedGold;
@@ -85,7 +86,7 @@ public class GoldManager : MonoBehaviour
         if (other.gameObject.CompareTag("pickup"))
         {
             other.gameObject.SetActive(false);
-            m_fgold = m_fgold + 5.0f;
+            m_fgold = m_fgold + goldup;
             m_bCollectedGold = true;
             m_bDumpedGold = false;
             shipMovementScript.m_forwardSpeed -= 0.1f;
