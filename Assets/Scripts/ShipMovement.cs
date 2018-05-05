@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour {
 
-	[SerializeField]
-	private float m_forwardSpeed;
+    public float m_forwardSpeed;
 
 	[SerializeField]
 	private float m_sideSpeed;

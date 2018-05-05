@@ -15,12 +15,21 @@ public class GoldManager : MonoBehaviour
 
     public float m_fFallSpeed = 0.01f;
     public float m_fRiseSpeed = 0.1f;
+    public float m_fGoldThreshold = 10.0f;
+
+    public bool m_bCollectedGold;
+    public bool m_bDumpedGold;
+
+    ShipMovement shipMovementScript;
 
 	// Use this for initialization
 	void Start ()
     {
         text();
         m_fgold = 0.0f;
+        shipMovementScript = GetComponent<ShipMovement>();
+        m_bCollectedGold = false;
+        m_bDumpedGold = false;
 	}
 	
 	// Update is called once per frame
@@ -28,14 +37,30 @@ public class GoldManager : MonoBehaviour
     {   
         text();
 
-        if(m_fgold > 0)
+        //if (m_fgold <= 5)
+        //{
+        //    transform.Translate(Vector3.up * (m_fRiseSpeed * Time.deltaTime));
+        //}
+        //// once player has some gold they will inevitably start falling and slowing down
+        //if (m_fgold > 5)
+        //{
+        //    transform.Translate(-Vector3.up * (m_fgold * m_fFallSpeed * Time.deltaTime));
+        //}
+
+        if(m_bCollectedGold)
         {
             transform.Translate(-Vector3.up * (m_fgold * m_fFallSpeed * Time.deltaTime));
         }
-
-        if(m_fgold <= 0)
+        if(m_bDumpedGold)
         {
-            transform.Translate(Vector3.up * (m_fRiseSpeed * Time.deltaTime));
+            if(m_fgold <= m_fGoldThreshold)
+            {
+                transform.Translate(Vector3.up * (1/m_fgold * m_fRiseSpeed * Time.deltaTime));
+            }
+            if(m_fgold > m_fGoldThreshold)
+            {
+                transform.Translate(-Vector3.up * (m_fgold * 0.5f * m_fFallSpeed * Time.deltaTime));
+            }  
         }
         
 
@@ -44,15 +69,10 @@ public class GoldManager : MonoBehaviour
             Reset();
         }
 
-        if(Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W))
         {
             DumpGold();
         }
-
-        //if(Input.GetKey(KeyCode.S))
-        //{
-        //    MoveShipDownwards();
-        //}
     }
 
     void text()
@@ -65,37 +85,28 @@ public class GoldManager : MonoBehaviour
         if (other.gameObject.CompareTag("pickup"))
         {
             other.gameObject.SetActive(false);
-            m_fgold = m_fgold + 10.0f;
-            // need to increase wieght of ship here
-            //MoveShipDownwards();
+            m_fgold = m_fgold + 5.0f;
+            m_bCollectedGold = true;
+            m_bDumpedGold = false;
+            shipMovementScript.m_forwardSpeed -= 0.1f;
         }
     }
 
     public void DumpGold()
     {
-        // decrease gold which will lighten ship weight
-        m_fgold -= 5.0f;
+        // only dump gols if we have 
+        if(m_fgold > 0)
+        {
+            m_bDumpedGold = true;
+            m_bCollectedGold = false;
+            // decrease gold which will lighten ship weight
+            m_fgold -= 1.0f;
+            shipMovementScript.m_forwardSpeed += 0.1f;
+        }
     }
 
     void Reset()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("RashadsScene");
     }
-
-    //public void IncreaseShipWeight()
-    //{
-    //    m_fcurrentShipWeight += m_fcurrentShipWeight + m_fgold;
-    //}
-
-    //public void MoveShipUpwards()
-    //{
-    //    transform.Translate(Vector3.up * (5 * Time.deltaTime));
-    //}
-
-    //public void MoveShipDownwards()
-    //{
-    //    Vector3 targetPosition = target.TransformPoint(new Vector3(transform.position.x, -3, transform.position.z));
-    //    transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, 0.3f);
-    //    //transform.Translate(-Vector3.up * (m_fgold * Time.deltaTime));
-    //}
 }
