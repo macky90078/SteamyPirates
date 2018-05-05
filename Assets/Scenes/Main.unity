@@ -190,9 +190,9 @@ GameObject:
   - component: {fileID: 271601142}
   - component: {fileID: 271601141}
   - component: {fileID: 271601145}
-  - component: {fileID: 271601146}
   - component: {fileID: 271601148}
   - component: {fileID: 271601147}
+  - component: {fileID: 271601146}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -289,9 +289,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 271601140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c318800521a80ae4fa2b31ee1155cb80, type: 3}
+  m_Script: {fileID: 11500000, guid: b4feaeb9bdea55d4da8608078a03b5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  farEnd: {fileID: 2016343330}
+  secondsForOneLength: 5
 --- !u!54 &271601147
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -301,9 +303,9 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -703,6 +705,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1144584665}
+  - component: {fileID: 1144584666}
   m_Layer: 0
   m_Name: Boom
   m_TagString: Untagged
@@ -724,6 +727,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1144584666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1144584664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc390324bb8ab764cace70be5f2a07bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 271601140}
+  CamPos: {fileID: 1144584665}
+  NewCamPos: {x: 0, y: 0, z: 0}
+  CamHeight: 0
+  CamHorizontal: 0
 --- !u!1001 &1269668501
 Prefab:
   m_ObjectHideFlags: 0
@@ -943,3 +962,31 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3b3b57344625b1489864936f5257e75, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2016343329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2016343330}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2016343330
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2016343329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.18, z: 22.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -67,14 +67,18 @@
     <Compile Include="Assets\Game Jam Template\Scripts\SetAudioLevels.cs" />
     <Compile Include="Assets\Game Jam Template\Scripts\ShowPanels.cs" />
     <Compile Include="Assets\Game Jam Template\Scripts\StartOptions.cs" />
-    <Compile Include="Assets\GoldManager.cs" />
+    <Compile Include="Assets\Scripts\CamFollow.cs" />
+    <Compile Include="Assets\Scripts\GoldManager.cs" />
+    <Compile Include="Assets\Scripts\ShipMovement.cs" />
+    <Compile Include="Assets\Scripts\Slide.cs" />
+    <Compile Include="Assets\Scripts\test.cs" />
     <None Include="Assets\Game Jam Template\Fonts\OpenSans\License!.txt" />
     <None Include="Assets\Game Jam Template\GameJamTemplateReadMe.txt" />
-    <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/mastr/Desktop/SteamyPirates/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>C:/Users/mastr/Desktop/SteamyPirates/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.StandardEvents">
+      <HintPath>C:/Users/mastr/Desktop/SteamyPirates/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -249,6 +253,9 @@
     </Reference>
     <Reference Include="Unity.Locator">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Unity.Locator.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>C:/Users/mastr/Desktop/SteamyPirates/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
