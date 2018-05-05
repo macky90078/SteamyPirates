@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Vent : MonoBehaviour {
-    public Transform player;
+    private GameObject player;
     public Vector3 m_Raised;
 
     public float m_fventstrength = 3f;
@@ -13,6 +13,7 @@ public class Vent : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_bVent = false;
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame

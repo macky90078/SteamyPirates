@@ -13,10 +13,17 @@ public class ShipMovement : MonoBehaviour {
 	private float m_sideMoveX = 0;
 	private float m_iPx;
 
+    private Rigidbody m_rb;
+
+ 
+    public float m_fUpforce = 100;
+
+    public float m_fDownForce = 100;
 
 	// Use this for initialization
 	void Start () 
 	{
+        m_rb = GetComponent<Rigidbody>();
         Screen.orientation = ScreenOrientation.Portrait;
 	}
 	
@@ -25,7 +32,10 @@ public class ShipMovement : MonoBehaviour {
     {
 		transform.Translate (Input.acceleration.x, 0, 0);
 		MoveShipForward ();
-		//ShipGyro ();
+        //ShipGyro ();
+
+        m_rb.AddForce(Vector3.down * m_fDownForce);
+        m_rb.AddForce(Vector3.up * m_fUpforce);
 
 	}
 

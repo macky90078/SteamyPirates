@@ -17,7 +17,7 @@ public class GoldManager : MonoBehaviour
 
     public float m_fFallSpeed = 0.01f;
     public float m_fRiseSpeed = 0.1f;
-    public float m_fGoldThreshold = 10.0f;
+    public float m_fGoldThreshold = 50.0f;
     public float goldup = 5.0f;
 
     public bool m_bCollectedGold;
@@ -31,7 +31,7 @@ public class GoldManager : MonoBehaviour
 	void Start ()
     {
         text();
-        m_fgold = 0.0f;
+        //m_fgold = 0.0f;
         shipMovementScript = GetComponent<ShipMovement>();
         m_bCollectedGold = false;
         m_bDumpedGold = false;
@@ -56,21 +56,34 @@ public class GoldManager : MonoBehaviour
             //StartCoroutine(DumpGoldCo());
         }
 
-        if (m_bCollectedGold)
-        {
-            transform.Translate(-Vector3.up * (m_fgold * m_fFallSpeed * Time.deltaTime));
-        }
-        if(m_bDumpedGold)
-        {
-            if(m_fgold <= m_fGoldThreshold && m_fgold > 0)
-            {
-                transform.Translate(Vector3.up * (1/m_fgold * m_fRiseSpeed * Time.deltaTime));
-            }
-            if(m_fgold > m_fGoldThreshold)
-            {
-                transform.Translate(-Vector3.up * (m_fgold * 0.5f * m_fFallSpeed * Time.deltaTime));
-            }  
-        }
+
+        //if(m_fgold <= 0)
+        //{
+        //    transform.Translate(Vector3.up * (m_fRiseSpeed * Time.deltaTime));
+        //}
+
+        //if (m_bCollectedGold)
+        //{
+        //    if (m_fgold <= m_fGoldThreshold && m_fgold > 0)
+        //    {
+        //        transform.Translate(Vector3.up * (1 / m_fgold * 5 * m_fRiseSpeed * Time.deltaTime));
+        //    }
+        //    if (m_fgold > m_fGoldThreshold)
+        //    {
+        //        transform.Translate(-Vector3.up * (m_fgold * 0.5f * m_fFallSpeed * Time.deltaTime));
+        //    }
+        //}
+        //if(m_bDumpedGold)
+        //{
+        //    if(m_fgold <= m_fGoldThreshold && m_fgold > 0)
+        //    {
+        //        transform.Translate(Vector3.up * (1/m_fgold * 5 * m_fRiseSpeed * Time.deltaTime));
+        //    }
+        //    if(m_fgold > m_fGoldThreshold)
+        //    {
+        //        transform.Translate(-Vector3.up * (m_fgold * 0.5f * m_fFallSpeed * Time.deltaTime));
+        //    }  
+        //}
         
 
         if (Input.GetKey(KeyCode.M))
@@ -96,9 +109,12 @@ public class GoldManager : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             m_fgold = m_fgold + goldup;
-            m_bCollectedGold = true;
-            m_bDumpedGold = false;
-            shipMovementScript.m_forwardSpeed -= 0.1f;
+            // m_bCollectedGold = true;
+            //m_bDumpedGold = false;
+
+            shipMovementScript.m_fUpforce -= 1f;
+            shipMovementScript.m_fDownForce += 1f;
+            shipMovementScript.m_forwardSpeed -= 1f;
         }
     }
 
@@ -107,11 +123,14 @@ public class GoldManager : MonoBehaviour
         // only dump gols if we have 
         if(m_fgold > 0)
         {
-            m_bDumpedGold = true;
-            m_bCollectedGold = false;
+            //m_bDumpedGold = true;
+            //m_bCollectedGold = false;
             // decrease gold which will lighten ship weight
-            m_fgold -= 1.0f;
-            shipMovementScript.m_forwardSpeed += 0.1f;
+            m_fgold -= 5.0f;
+
+            shipMovementScript.m_fDownForce -= 0.6f;
+            shipMovementScript.m_fUpforce += 0.6f;
+            shipMovementScript.m_forwardSpeed += 0.5f;
         }
     }
 
