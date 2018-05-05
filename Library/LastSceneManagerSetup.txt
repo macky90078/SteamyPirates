@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Mack's Dojo.unity
+- path: Assets/Scenes/RashadsScene.unity
   isLoaded: 1
   isActive: 1
