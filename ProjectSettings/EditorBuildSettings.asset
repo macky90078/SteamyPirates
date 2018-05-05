@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f3471898b525fbe418e416d776d5a5ff
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 5800c867b3136964a9403d6e591a74d6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mack's Dojo.unity
     guid: 91a76806d0e2df84488c83edc0f23920
   m_configObjects: {}

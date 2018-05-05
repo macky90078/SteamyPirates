@@ -1,9 +1,9 @@
 Android
 PlayerPath?
-C:/Users/macke/OneDrive/Desktop/ToJamBuild/sideMovementTest.apk
+C:/Users/macke/OneDrive/Desktop/ToJamBuild/PhoneTest.apk
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
-Assets/Scenes/Mack's Dojo.unity
+Assets/Scenes/Main.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -121,7 +121,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 8b238b37ee9a9a68f1548716f357c47b Assembly-CSharp.dll:.StartOptions
-5952ead963530bfea796f83976cf3a74 Assembly-CSharp.dll:.GoldManager
+78333c7397798a41559fcaab79e4fec9 Assembly-CSharp.dll:.GoldManager
 b5b63fcef8805485a88606d72289e62b Assembly-CSharp.dll:.ShowPanels
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DontDestroy
 cfa2adad5b48d50b0a3520304737bded Assembly-CSharp.dll:.SetAudioLevels
@@ -160,3 +160,4 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+b3f8c6354e480ac16d43d3d23654b397 Assembly-CSharp.dll:.Vent

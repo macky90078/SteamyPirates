@@ -10,6 +10,8 @@ public class GoldManager : MonoBehaviour
 
     public float m_fgold;
 
+    private int m_iFingerCount;
+
     public GameObject Player;
     public Transform target;
 
@@ -19,6 +21,8 @@ public class GoldManager : MonoBehaviour
 
     public bool m_bCollectedGold;
     public bool m_bDumpedGold;
+
+    public bool m_bHasDumped = false;
 
     ShipMovement shipMovementScript;
 
@@ -37,22 +41,27 @@ public class GoldManager : MonoBehaviour
     {
         text();
 
-        int fingerCount = 0;
         foreach(Touch touch in Input.touches)
         {
             if(touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
             {
-                DumpGold();
+                m_iFingerCount++;
             }
         }
 
-        if(m_bCollectedGold)
+        if(m_iFingerCount > 0)
+        {
+            DumpGold();
+            //StartCoroutine(DumpGoldCo());
+        }
+
+        if (m_bCollectedGold)
         {
             transform.Translate(-Vector3.up * (m_fgold * m_fFallSpeed * Time.deltaTime));
         }
         if(m_bDumpedGold)
         {
-            if(m_fgold <= m_fGoldThreshold)
+            if(m_fgold <= m_fGoldThreshold && m_fgold > 0)
             {
                 transform.Translate(Vector3.up * (1/m_fgold * m_fRiseSpeed * Time.deltaTime));
             }
@@ -71,6 +80,7 @@ public class GoldManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W))
         {
             DumpGold();
+            //StartCoroutine(DumpGoldCo());
         }
     }
 
@@ -102,6 +112,22 @@ public class GoldManager : MonoBehaviour
             m_fgold -= 1.0f;
             shipMovementScript.m_forwardSpeed += 0.1f;
         }
+    }
+
+    IEnumerator DumpGoldCo()
+    {
+         // only dump gols if we have 
+        if(m_fgold > 0)
+        {
+            m_bHasDumped = true;
+            m_bDumpedGold = true;
+            m_bCollectedGold = false;
+            // decrease gold which will lighten ship weight
+            m_fgold -= 1.0f;
+            shipMovementScript.m_forwardSpeed += 0.1f;
+        }
+        yield return new WaitForSeconds(0.2f);
+        m_bHasDumped = false;
     }
 
     void Reset()
