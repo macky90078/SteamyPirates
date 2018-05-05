@@ -390,10 +390,10 @@ GameObject:
   - component: {fileID: 271601143}
   - component: {fileID: 271601142}
   - component: {fileID: 271601141}
-  - component: {fileID: 271601145}
   - component: {fileID: 271601148}
   - component: {fileID: 271601147}
   - component: {fileID: 271601146}
+  - component: {fileID: 271601145}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -476,16 +476,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 271601140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a17b47088fe04749a3c4da21dc98e43, type: 3}
+  m_Script: {fileID: 11500000, guid: 6131bc47b53289447aa2b70fd5343945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GoldText: {fileID: 434735594}
   m_fgold: 0
-  Player: {fileID: 271601140}
+  Player: {fileID: 0}
   target: {fileID: 0}
-  m_fmaxShipWeight: 100
-  m_fminShipWeight: 0
-  m_fcurrentShipWeight: 0
+  m_fFallSpeed: 0.01
+  m_fRiseSpeed: 0.1
 --- !u!114 &271601146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_forwardSpeed: 5
+  m_sideSpeed: 0
 --- !u!54 &271601147
 Rigidbody:
   m_ObjectHideFlags: 0
