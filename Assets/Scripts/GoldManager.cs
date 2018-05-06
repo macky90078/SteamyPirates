@@ -27,15 +27,22 @@ public class GoldManager : MonoBehaviour
 
     ShipMovement shipMovementScript;
 
-	// Use this for initialization
-	void Start ()
+    public AudioSource m_audioSource;
+    public AudioClip[] goldpick;
+    private AudioClip goldpickclip;
+    public AudioClip[] golddump;
+    private AudioClip golddumpclip;
+
+    // Use this for initialization
+    void Start ()
     {
         text();
         //m_fgold = 0.0f;
         shipMovementScript = GetComponent<ShipMovement>();
         m_bCollectedGold = false;
         m_bDumpedGold = false;
-	}
+        m_audioSource = gameObject.GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -89,6 +96,7 @@ public class GoldManager : MonoBehaviour
         if (Input.GetKey(KeyCode.M))
         {
             Reset();
+            
         }
 
         if (Input.GetKeyUp(KeyCode.W))
@@ -109,6 +117,12 @@ public class GoldManager : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             m_fgold = m_fgold + goldup;
+
+            int index = Random.Range(0, goldpick.Length);
+            goldpickclip = goldpick[index];
+            m_audioSource.clip = goldpickclip;
+            m_audioSource.Play();
+
             // m_bCollectedGold = true;
             //m_bDumpedGold = false;
 
@@ -131,6 +145,12 @@ public class GoldManager : MonoBehaviour
             shipMovementScript.m_fDownForce -= 0.6f;
             shipMovementScript.m_fUpforce += 0.6f;
             shipMovementScript.m_forwardSpeed += 0.5f;
+
+            
+            int index = Random.Range(0, golddump.Length);
+            golddumpclip = golddump[index];
+            m_audioSource.clip = golddumpclip;
+            m_audioSource.Play();
         }
     }
 
