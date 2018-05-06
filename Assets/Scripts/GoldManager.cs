@@ -112,8 +112,8 @@ public class GoldManager : MonoBehaviour
             // m_bCollectedGold = true;
             //m_bDumpedGold = false;
 
-            shipMovementScript.m_fUpforce -= 1f;
-            shipMovementScript.m_fDownForce += 1f;
+            shipMovementScript.m_fUpforce -= 2.5f;
+            shipMovementScript.m_fDownForce += 2.5f;
             shipMovementScript.m_forwardSpeed -= 1f;
         }
     }
@@ -128,8 +128,8 @@ public class GoldManager : MonoBehaviour
             // decrease gold which will lighten ship weight
             m_fgold -= 5.0f;
 
-            shipMovementScript.m_fDownForce -= 0.6f;
-            shipMovementScript.m_fUpforce += 0.6f;
+            shipMovementScript.m_fDownForce -= 1.33f;
+            shipMovementScript.m_fUpforce += 1.33f;
             shipMovementScript.m_forwardSpeed += 0.5f;
         }
     }
