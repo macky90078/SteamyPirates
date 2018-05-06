@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1.0992864, g: 0.717493, b: 0.7208513, a: 1}
+  m_IndirectSpecularColor: {r: 1.0986949, g: 0.7174309, b: 0.7208574, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -456,6 +456,34 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 470464, guid: e3a2b024936fe54498e16bf28bfd0e90, type: 2}
   m_PrefabInternal: {fileID: 47372263}
+--- !u!1 &59487580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 59487581}
+  m_Layer: 0
+  m_Name: GoldTransform (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &59487581
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59487580}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 0.533, z: -0.3488}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 271601144}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &62534242
 Prefab:
   m_ObjectHideFlags: 0
@@ -1103,6 +1131,7 @@ GameObject:
   - component: {fileID: 271601149}
   - component: {fileID: 271601141}
   - component: {fileID: 271601145}
+  - component: {fileID: 271601146}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -1179,7 +1208,13 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 20, z: 5.66}
   m_LocalScale: {x: 2, y: 1, z: 5}
-  m_Children: []
+  m_Children:
+  - {fileID: 465341437}
+  - {fileID: 820215436}
+  - {fileID: 1847334722}
+  - {fileID: 1865358061}
+  - {fileID: 1951131629}
+  - {fileID: 59487581}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1278,6 +1313,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &271601146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 271601140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14aea117581fc954ba9437dc5e9cbd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldBagSpawnPoints:
+  - {fileID: 465341437}
+  - {fileID: 820215436}
+  - {fileID: 1847334722}
+  - {fileID: 1865358061}
+  - {fileID: 1951131629}
+  - {fileID: 59487581}
+  goldBagPrefab: {fileID: 1048432052921784, guid: df6851aecc4a24b41bb68447fa09fd00,
+    type: 2}
 --- !u!54 &271601147
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1925,6 +1980,34 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 443904, guid: bf07739386a93f443b373a919b97fbe7, type: 2}
   m_PrefabInternal: {fileID: 447945771}
+--- !u!1 &465341436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 465341437}
+  m_Layer: 0
+  m_Name: GoldTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &465341437
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465341436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.023, y: 0.518, z: -0.3286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 271601144}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &465511101
 Prefab:
   m_ObjectHideFlags: 0
@@ -2653,6 +2736,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011143004732, guid: 46fef82a1bf92374096a89660fd2a186,
     type: 2}
   m_PrefabInternal: {fileID: 783683040}
+--- !u!1 &820215435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 820215436}
+  m_Layer: 0
+  m_Name: GoldTransform (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &820215436
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820215435}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.016, y: 0.514, z: -0.314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 271601144}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &830939812
 Prefab:
   m_ObjectHideFlags: 0
@@ -4472,6 +4583,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20fe5fe5dcaadfc4ab22d4638b876701, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1847334721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1847334722}
+  m_Layer: 0
+  m_Name: GoldTransform (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1847334722
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1847334721}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.006, y: 0.52, z: -0.3382}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 271601144}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1853012910
 Prefab:
   m_ObjectHideFlags: 0
@@ -4518,6 +4657,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dc1fcb109772d284485f64219c3a7f2a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1865358060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1865358061}
+  m_Layer: 0
+  m_Name: GoldTransform (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1865358061
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1865358060}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.043, y: 0.532, z: -0.3267}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 271601144}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1881827096
 Prefab:
   m_ObjectHideFlags: 0
@@ -4651,6 +4818,34 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a74d6c1e0c291b64db4bad3a3b342144, type: 2}
   m_PrefabInternal: {fileID: 1923287991}
+--- !u!1 &1951131628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1951131629}
+  m_Layer: 0
+  m_Name: GoldTransform (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951131629
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951131628}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.085, y: 0.532, z: -0.3309}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 271601144}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1957770092
 Prefab:
   m_ObjectHideFlags: 0
