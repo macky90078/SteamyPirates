@@ -26,6 +26,7 @@ public class GoldManager : MonoBehaviour
     public bool m_bHasDumped = false;
 
     ShipMovement shipMovementScript;
+    GoldBags goldBagScript;
 
     public AudioSource m_audioSource;
     public AudioClip[] goldpick;
@@ -39,6 +40,7 @@ public class GoldManager : MonoBehaviour
         text();
         //m_fgold = 0.0f;
         shipMovementScript = GetComponent<ShipMovement>();
+        goldBagScript = GetComponent<GoldBags>();
         m_bCollectedGold = false;
         m_bDumpedGold = false;
         m_audioSource = gameObject.GetComponent<AudioSource>();
@@ -122,9 +124,7 @@ public class GoldManager : MonoBehaviour
             goldpickclip = goldpick[index];
             m_audioSource.clip = goldpickclip;
             m_audioSource.Play();
-
-            // m_bCollectedGold = true;
-            //m_bDumpedGold = false;
+            goldBagScript.AddGoldBagToShip();
 
             shipMovementScript.m_fUpforce -= 2.5f;
             shipMovementScript.m_fDownForce += 2.5f;

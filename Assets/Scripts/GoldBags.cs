@@ -10,6 +10,7 @@ public class GoldBags : MonoBehaviour
     public void AddGoldBagToShip()
     {
         int randomSpawnPoint = Random.Range(0, goldBagSpawnPoints.Length);
-        Instantiate(goldBagPrefab, goldBagSpawnPoints[randomSpawnPoint].transform.position, Quaternion.identity);
+        GameObject gold = Instantiate(goldBagPrefab, goldBagSpawnPoints[randomSpawnPoint].transform.position, Quaternion.identity);
+        gold.transform.parent = transform;
     }
 }
