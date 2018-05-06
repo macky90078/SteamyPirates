@@ -37,7 +37,18 @@ public class ShipMovement : MonoBehaviour {
         m_rb.AddForce(Vector3.down * m_fDownForce);
         m_rb.AddForce(Vector3.up * m_fUpforce);
 
-	}
+        if(Input.GetKeyDown("A"))
+        {
+            transform.Translate(-1, 0, 0);
+        }
+
+        if (Input.GetKeyDown("D"))
+        {
+            transform.Translate(1, 0, 0);
+        }
+
+
+    }
 
     private void MoveShipForward()
     {
