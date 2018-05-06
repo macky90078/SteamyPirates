@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GoldManager : MonoBehaviour
 {
-    public Text GoldText;
+    public Text m_tGoldText;
 
-    public float m_fgold;
+    public float m_fGold;
 
     private int m_iFingerCount;
 
@@ -65,8 +65,8 @@ public class GoldManager : MonoBehaviour
             //StartCoroutine(DumpGoldCo());
         }
 
-
-        //if(m_fgold <= 0)
+        // this will alow the ship to rise continuously is gold is 0
+        //if (m_fGold <= 0)
         //{
         //    transform.Translate(Vector3.up * (m_fRiseSpeed * Time.deltaTime));
         //}
@@ -93,14 +93,6 @@ public class GoldManager : MonoBehaviour
         //        transform.Translate(-Vector3.up * (m_fgold * 0.5f * m_fFallSpeed * Time.deltaTime));
         //    }  
         //}
-        
-
-        if (Input.GetKey(KeyCode.M))
-        {
-            Reset();
-            
-        }
-
         if (Input.GetKeyUp(KeyCode.W))
         {
             DumpGold();
@@ -110,7 +102,7 @@ public class GoldManager : MonoBehaviour
 
     void text()
     {
-        GoldText.text = "Gold: " + m_fgold;
+        m_tGoldText.text = "Gold: " + m_fGold;
     }
 
     void OnTriggerEnter(Collider other)
@@ -118,7 +110,7 @@ public class GoldManager : MonoBehaviour
         if (other.gameObject.CompareTag("pickup"))
         {
             other.gameObject.SetActive(false);
-            m_fgold = m_fgold + goldup;
+            m_fGold = m_fGold + goldup;
 
             int index = Random.Range(0, goldpick.Length);
             goldpickclip = goldpick[index];
@@ -135,17 +127,15 @@ public class GoldManager : MonoBehaviour
     public void DumpGold()
     {
         // only dump gols if we have 
-        if(m_fgold > 0)
+        if(m_fGold > 0)
         {
-            //m_bDumpedGold = true;
-            //m_bCollectedGold = false;
             // decrease gold which will lighten ship weight
-            m_fgold -= 5.0f;
+            m_fGold -= 5.0f;
 
             shipMovementScript.m_fDownForce -= 1.33f;
             shipMovementScript.m_fUpforce += 1.33f;
             shipMovementScript.m_forwardSpeed += 0.5f;
-
+            goldBagScript.RemoveGoldBagFromShip();
             
             int index = Random.Range(0, golddump.Length);
             golddumpclip = golddump[index];
@@ -157,21 +147,16 @@ public class GoldManager : MonoBehaviour
     IEnumerator DumpGoldCo()
     {
          // only dump gols if we have 
-        if(m_fgold > 0)
+        if(m_fGold > 0)
         {
             m_bHasDumped = true;
             m_bDumpedGold = true;
             m_bCollectedGold = false;
             // decrease gold which will lighten ship weight
-            m_fgold -= 1.0f;
+            m_fGold -= 1.0f;
             shipMovementScript.m_forwardSpeed += 0.1f;
         }
         yield return new WaitForSeconds(0.2f);
         m_bHasDumped = false;
-    }
-
-    void Reset()
-    {
-        SceneManager.LoadScene("RashadsScene");
     }
 }
